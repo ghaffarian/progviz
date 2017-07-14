@@ -1,2 +1,2 @@
-# progviz
-Program Graph Visualizer: A Desktop Graph Visualization for Graphical Program Representations
+# ProGViz (Program Graph Visualizer)
+## A Desktop Graph Visualization for Graphical Program Representations
