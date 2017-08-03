@@ -6,3 +6,10 @@ This program receives graphs in well-known file formats (such as [DOT](https://e
 It's main intended purpose is to be used by **program analysis experts** who require to visualize and analyze large and complex graphical representations of computer programs.
 
 This is an internal project by a group of students of [Amirkabir University of Technology](http://aut.ac.ir), as a sub-project of the PhD thesis of [Seyed Mohammad Ghaffarian](http://linkedin.com/in/smghaffarian).
+
+##Getting started
+To install electron globally run the following command
+`sudo npm install -g electron --unsafe-perm=true --allow-root`
+
+To run the applcation run the following command
+`electron main.js`
