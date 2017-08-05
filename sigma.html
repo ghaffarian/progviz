@@ -77,6 +77,8 @@
 <script src="sigma_lib/plugins/sigma.renderers.edgeLabels/sigma.canvas.edges.labels.curvedArrow.js"></script>
 <script src="sigma_lib/plugins/sigma.layout.forceAtlas2/worker.js"></script>
 <script src="sigma_lib/plugins/sigma.layout.forceAtlas2/supervisor.js"></script>
+<script src="sigma_lib/plugins/sigma.layouts.dagre/sigma.layout.dagre.js"></script>
+<script src="bower_components/dagre/dist/dagre.core.min.js"></script>
 
 
 
@@ -221,7 +223,7 @@ function creatJSONFile(dotString){
         target: target,
         size: 30,
         color: 'red',
-        type: 'curvedArrow'
+        type: 'arrow'
 
       };
 
@@ -255,13 +257,18 @@ s = new sigma({
     container: document.getElementById('graph-container'),
     type: 'canvas'
   },
-  settings: {
-        edgeLabelSize: 10,
-        minArrowSize : 10
-  }
 });
 
- s.startForceAtlas2({worker: true, barnesHutOptimize: false});
+ //s.startForceAtlas2({worker: true, barnesHutOptimize: false});
+ var config = {
+  rankdir: 'TB'
+};
+
+// Start the algorithm:
+var listener = sigma.layouts.dagre.configure(s, config);
+
+sigma.layouts.dagre.start(s);
+
 
  }
 
