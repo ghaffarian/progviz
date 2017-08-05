@@ -1,6 +1,6 @@
 <html>
 <head>
-  <link rel="stylesheet" href="sigma.css" />
+  <link rel="stylesheet" href="sigma.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
     #graph-container {
@@ -11,11 +11,11 @@
       position: absolute;
     }
   </style>
-  <div id="graph-container"></div>
-</div>
+   <div id="graph-container"></div>
 </head>
 <body>
-      <input type="file" id="dotFile" multiple onchange="startRead()">
+
+  <input type="file" id="dotFile" multiple onchange="startRead()">
 
 <div id="container"></div>
 
@@ -79,7 +79,6 @@
 <script src="sigma_lib/plugins/sigma.layout.forceAtlas2/supervisor.js"></script>
 
 
-</script>
 
 <script>
 
@@ -262,7 +261,9 @@ s = new sigma({
   }
 });
 
- //s.startForceAtlas2({worker: true, barnesHutOptimize: false});
+ s.startForceAtlas2({worker: true, barnesHutOptimize: false});
+
+ }
 
 
 </script>
