@@ -1,0 +1,29 @@
+{
+  "name": "progviz",
+  "version": "1.0.0",
+  "description": "AST, CFG, PDG graph visualization",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ghaffarian/progviz.git"
+  },
+  "keywords": [
+    "AST",
+    "CFG",
+    "PDG"
+  ],
+  "author": "@ghaffarian @aliizadi @ehsansouri23 @abedinevis",
+  "license": "Apache License",
+  "bugs": {
+    "url": "https://github.com/ghaffarian/progviz/issues"
+  },
+  "homepage": "https://github.com/ghaffarian/progviz#readme",
+  "dependencies": {
+    "dagre-d3": "^0.4.17",
+    "electron": "^1.7.5"
+  }
+}

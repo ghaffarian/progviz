@@ -1,0 +1,10 @@
+  .node rect {
+    stroke: #999;
+    fill: #fff;
+  }
+
+  .edgePath path {
+    stroke: #333;
+    fill: #333;
+    stroke-width: 1.5px;
+  }
