@@ -9,6 +9,7 @@ This is an internal project by a group of students of [Amirkabir University of T
 
 ## Getting started
 For starting the dependencies of the project should be installed with npm:
+
 `npm install`
 
 To launch the applcation type the following command:
