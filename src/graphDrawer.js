@@ -1,35 +1,24 @@
 const dagreD3 = require('dagre-d3');
 const d3 = require('d3');
 const graphCreator = require('./src/graphCreator.js');
+const graphStyleUpdater = require('./src/graphStyleUpdater.js');
 
-let graph_dot ; 
+let svg; 
 
+function init() {
+     svg = d3.select("svg")
+}
 
-function drawGraph() {
+function drawGraph(g) {
 
-    graphCreator.createGraph(graph_dot);
+    /*********** updating examples **************/
+    // g = graphStyleUpdater.change_node(g,"n30", "red");
+    // g = graphStyleUpdater.change_neighbours(g, "n32", "red");
+    // g = graphStyleUpdater.change_edge(g,"n32","n33", "blue");
+    // g = graphStyleUpdater.change_two_nodes_of_edge(g,"n32","n33", "red");
 
-    let graph = graphCreator.getGraph();
-
-    let g = new dagreD3.graphlib.Graph().setGraph({});
-
-    // Automatically label each of the nodes
-    for (let i = 0; i < graph.nodes.length; i++)
-        g.setNode(graph.nodes[i].id, { label: graph.nodes[i].label, style : "fill: #00ffd0" });
-
-    // Set up the edges
-    for (let i = 0; i < graph.edges.length; i++)
-        g.setEdge(graph.edges[i].source, graph.edges[i].target, { label: graph.edges[i].label, lineInterpolate: 'basis' });
-
-
-    // Set some general styles
-    g.nodes().forEach(function (v) {
-        let node = g.node(v);
-        node.rx = node.ry = 5;
-    });
-
-    let svg = d3.select("svg"),
-        inner = svg.select("g");
+    //svg.selectAll("*").remove();
+    let inner = svg.select("g");
 
     // Set up zoom support
     let zoom = d3.behavior.zoom().on("zoom", function () {
@@ -38,14 +27,41 @@ function drawGraph() {
     });
     svg.call(zoom);
 
-
-    
-
     // Create the renderer
     let render = new dagreD3.render();
 
     // Run the renderer. This is what draws the final graph.
     render(inner, g);
+
+
+    let w = 800, h = 500;
+    let colors = d3.scale.category20();
+
+    let vis = d3.select("#chart").append("svg:svg")
+        .attr("width", w)
+        .attr("height", h);
+
+    var data = d3.range(20).map(function (i) {
+        return { i: i, x: Math.random() * w, y: Math.random() * h, r: Math.random() * 30 }
+    });
+
+    vis.selectAll("g.node")
+        .data(data)
+        .enter().append("svg:g.node")
+        .attr("stroke", "black")
+        .attr("fill", function (d, i) { return colors(i); })
+        .attr("cx", function (d, i) { return d.x; })
+        .attr("cy", function (d, i) { return d.y; })
+        .attr("r", function (d, i) { return d.r; });
+
+    $('svg g.node').tipsy({
+        gravity: 'w',
+        html: true,
+        title: function () {
+            var d = this.__data__, c = colors(d.i);
+            return d;
+        }
+    });
 
     // Center the graph
     let initialScale = 0.75;
@@ -53,7 +69,8 @@ function drawGraph() {
         .translate([(svg.attr("width") - g.graph().width * initialScale) / 2, 20])
         .scale(initialScale)
         .event(svg);
-    svg.attr('height', g.graph().height * initialScale + 40);
+    svg.attr(window.width, window.height);
+
 }
 
 
@@ -63,9 +80,15 @@ ipcRenderer.send('openFile', () => {
     console.log("Event sent.");
 })
 ipcRenderer.on('fileData', (event, data) => {
-   graph_dot = data; 
-   drawGraph();  
+    graph_dot = data;
+    init();
+    let g = graphCreator.getGraph(graph_dot, "TB", "ellipse");
+    drawGraph(g);
 })
+
+
+
+
 
 
 
