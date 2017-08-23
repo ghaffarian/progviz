@@ -1,15 +1,14 @@
-
-let graph = {
-    nodes: [],
-    edges: []
-};
+const dagreD3 = require('dagre-d3');
 
 
-module.exports.createGraph = (dotString) => {
+function parseGraph(dotString) {
+
+    let graph = {
+        nodes: [],
+        edges: []
+    };
+
     let lines = dotString.split("\n");
-
-
-        
 
     let i = 2;
     let nodes = new Array();
@@ -59,7 +58,44 @@ module.exports.createGraph = (dotString) => {
     graph.nodes = nodes;
     graph.edges = edges;
 
+    return graph;
+
 }
 
-module.exports.getGraph = () => graph; 
+function createGraph(graph, direction, shape) {
+
+    let g = new dagreD3.graphlib.Graph().setGraph({ rankdir: direction });
+
+    // Automatically label each of the nodes
+    for (let i = 0; i < graph.nodes.length; i++)
+        g.setNode(graph.nodes[i].id, { label: graph.nodes[i].label, style: "fill: #00ffd0", shape: shape });
+
+    // Set up the edges
+    for (let i = 0; i < graph.edges.length; i++)
+        g.setEdge(graph.edges[i].source, graph.edges[i].target, { label: graph.edges[i].label, lineInterpolate: 'basis', style: "stroke : red;stroke-width:2px;" });
+
+
+    // Set some general styles
+    g.nodes().forEach(function (v) {
+        let node = g.node(v);
+        node.rx = node.ry = 5;
+    });
+
+    return g;
+
+}
+
+/**
+* Recognized options:
+* **********************
+* @param  {String} direction    Direction for rank nodes. Can be "TB", "BT", "LR", or "RL", where T = top, B = bottom, L = left, and R = right.
+* @param  {String} shape    Shape of nodes. Can be "rect", "circle", "ellipse", or "diamond".
+*
+*/
+
+module.exports.getGraph = (dotString, direction, shape) => {
+    let graph = parseGraph(dotString);
+    return createGraph(graph, direction, shape);
+}
+
 
