@@ -1,12 +1,14 @@
 const dagreD3 = require('dagre-d3');
 
 
-function parseGraph(dotString) {
+let graph = {
+    nodes: [],
+    edges: []
+};
 
-    let graph = {
-        nodes: [],
-        edges: []
-    };
+
+
+function parseGraph(dotString) {
 
     let lines = dotString.split("\n");
 
@@ -68,11 +70,11 @@ function createGraph(graph, direction, shape) {
 
     // Automatically label each of the nodes
     for (let i = 0; i < graph.nodes.length; i++)
-        g.setNode(graph.nodes[i].id, { label: graph.nodes[i].label, style: "fill: #00ffd0", shape: shape });
+        g.setNode(graph.nodes[i].id, { label: graph.nodes[i].label, style: "fill: yellow", shape: shape });
 
     // Set up the edges
     for (let i = 0; i < graph.edges.length; i++)
-        g.setEdge(graph.edges[i].source, graph.edges[i].target, { label: graph.edges[i].label, lineInterpolate: 'basis', style: "stroke : red;stroke-width:2px;" });
+        g.setEdge(graph.edges[i].source, graph.edges[i].target, { label: graph.edges[i].label, lineInterpolate: 'basis' });
 
 
     // Set some general styles
@@ -94,8 +96,10 @@ function createGraph(graph, direction, shape) {
 */
 
 module.exports.getGraph = (dotString, direction, shape) => {
-    let graph = parseGraph(dotString);
+    graph = parseGraph(dotString);
     return createGraph(graph, direction, shape);
 }
+
+module.exports.getGraphObject = () => graph;
 
 
