@@ -2,12 +2,14 @@ const dagreD3 = require('dagre-d3');
 const d3 = require('d3');
 const graphCreator = require('./src/graphCreator.js');
 const graphStyleUpdater = require('./src/graphStyleUpdater.js');
+const graphProperties = require('./src/graphProperties.js');
 
-let svg; 
+let svg;
 
 function init() {
-     svg = d3.select("svg")
+    svg = d3.select("svg")
 }
+
 
 function drawGraph(g) {
 
@@ -34,7 +36,7 @@ function drawGraph(g) {
     render(inner, g);
 
 
-    let w = 800, h = 500;
+    let w = 520, h = 600;
     let colors = d3.scale.category20();
 
     let vis = d3.select("#chart").append("svg:svg")
@@ -63,13 +65,7 @@ function drawGraph(g) {
         }
     });
 
-    // Center the graph
-    let initialScale = 0.75;
-    zoom
-        .translate([(svg.attr("width") - g.graph().width * initialScale) / 2, 20])
-        .scale(initialScale)
-        .event(svg);
-    svg.attr(window.width, window.height);
+
 
 }
 
@@ -84,7 +80,20 @@ ipcRenderer.on('fileData', (event, data) => {
     init();
     let g = graphCreator.getGraph(graph_dot, "TB", "ellipse");
     drawGraph(g);
+    //properties();
+
 })
+
+function properties() {
+
+    console.log(graphProperties.getNumberOfNodes());
+    document.getElementById('nodesProoerty').innerHTML = "Nodes: " + graphProperties.getNumberOfNodes();
+    document.getElementById('edgesProperty').innerHTML = "Edges: " + graphProperties.getNumberOfEdges();
+    document.getElementById('nameProperty').innerHTML = "Name: " +  graphProperties.getName();
+
+}
+
+
 
 
 
