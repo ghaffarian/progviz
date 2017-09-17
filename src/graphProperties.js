@@ -1,15 +1,14 @@
 const dagreD3 = require('dagre-d3');
-const graphCreator = require('./graphCreator.js');
 
-module.exports.getName = () => {
+module.exports.getName = (g) => {
     return "CFG";
 }
 
-module.exports.getNumberOfNodes = () => {
-    return graphCreator.getGraphObject.nodes.length; 
+module.exports.getNumberOfNodes = (g) => {
+    return  Object.keys(g._nodes).length; 
 }
 
-module.exports.getNumberOfEdges = () => {
-    return graphCreator.getGraphObject.edges.lengths;
+module.exports.getNumberOfEdges = (g) => {
+    return  Object.keys(g._edgeObjs).length;
 }
 
