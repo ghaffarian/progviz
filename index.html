@@ -1,68 +1,48 @@
 <html>
 
 <head>
-
-
-</head>
-
-<body>
-
-
-</body>
-
-</html>
-
-<html>
-
-<head>
   <meta charset="utf-8">
   <title>ProgVIZ</title>
-  <link rel="stylesheet" href="./style/app.css">
   <link rel="stylesheet" type="text/css" href="./style/graph.css">
   <link href="./style/tipsy.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="./style/w3.css">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
   <script type="text/javascript" src="./style/jquery.tipsy.js"></script>
+  <script type="text/javascript" src="./src/Ui/buttons.js"></script>
   <style type="text/css" media="screen"></style>
-
-
-  <!-- Importing w3.css -->
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-  <!-- Importing w3.js -->
-  <script src="https://www.w3schools.com/lib/w3.js"></script>
-
-  <!-- Importing icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
 </head>
 
 <body>
+  <div class="w3-row">
 
-  <div id="main">
-    <div class="w3-cell-row">
-      <div class="w3-container w3-cell" id="essentials">
-        <div class="icons"><i class="fa fa-search icons"></i></div>
-        <div class="icons"><i class="glyphicon glyphicon-zoom-in icons"></i></div>
-        <div class="icons"><i class="glyphicon glyphicon-zoom-out icons"></i></div>
-      </div>
+    <div class="w3-sidebar w3-bar-block w3-col w3-indigo" style="width:70px">
+      <link rel="stylesheet" href="./style/material-icon.css">
 
-      <div class="w3-container w3-cell" id="graphContainer">
-        <p>Welcome to progVIZ</p>
-        <svg width="100%" height="100%">
-          <g/>
-        </svg>
-        <script src="src/graphDrawer.js"></script>
-      </div>
+      <button href="" class="w3-bar-item w3-button" id="openFile"><i class="material-icons w3-xxlarge" >create_new_folder</i></button>
+      <button href="" class="w3-bar-item w3-button" id="search"><i class="material-icons w3-xxlarge">search</i></button>
+      <button href="" class="w3-bar-item w3-button" id="capture"><i class="material-icons w3-xxlarge">camera</i></button>
+      <button href="" class="w3-bar-item w3-button" id="zoomIn"><i class="material-icons w3-xxlarge">zoom_in</i></button>
+      <button href="" class="w3-bar-item w3-button" id="zoomOut"><i class="material-icons w3-xxlarge">zoom_out</i></button>
+      <button href="" class="w3-bar-item w3-button" id="settings"><i class="material-icons w3-xxlarge">settings</i></button>
+      <script>
+        open_file();
+      </script>
+    </div>
 
-      <div class="w3-container w3-cell" id="graphProperties">
-        <h5 class="header">Graph Properties &nbsp&nbsp
-          <i class="fa fa-close" onclick="w3.hide('#graphProperties');
-          w3.addStyle('#graphContainer', 'width', '720px');"></i>
-        </h5>
+
+
+    <div id="svgGraph" class="w3-col w3-gray" style="height: 2000px;">
+
+      <svg width="100%" height="100%">
+        <g/>
+      </svg>
+    </div>
+
+
+    <div class="w3-sidebar  w3-bar-block w3-col w3-indigo" style="right:0; width:200px;">
+      <div class="w3-container ">
+        <h5>Graph info</h5>
         <ul id="propertiesList">
           <li id="nameProperty">Name</li>
           <li id="nodesProoerty">Nodes</li>
@@ -70,6 +50,7 @@
         </ul>
       </div>
     </div>
+
   </div>
 
 
