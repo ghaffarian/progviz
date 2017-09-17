@@ -24,6 +24,7 @@
   "homepage": "https://github.com/ghaffarian/progviz#readme",
   "dependencies": {
     "dagre-d3": "^0.4.17",
-    "electron": "^1.7.5"
+    "electron": "^1.7.5",
+    "graphlib-dot": "^0.6.2"
   }
 }
