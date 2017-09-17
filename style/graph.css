@@ -1,6 +1,6 @@
   .node rect {
-    /* stroke: #999; */
-    fill: #fff;
+     stroke: black;
+    fill: black;
   }
 
   .edgePath path {
@@ -10,14 +10,9 @@
 
   text {
   font-weight: 300;
-  font-family: "vera";
   font-size: 14px;
   } 
 
-  @font-face {
-    font-family: 'vera'; /*a name to be used later*/
-    src: local('VeraBad.ttf'); /*URL to font*/
-  }
 /* 
   body {
      background: white;
