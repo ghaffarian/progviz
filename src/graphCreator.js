@@ -1,81 +1,16 @@
 const dagreD3 = require('dagre-d3');
 
-
-let graph = {
-    nodes: [],
-    edges: []
-};
-
-
-
-function parseGraph(dotString) {
-
-    let lines = dotString.split("\n");
-
-    let i = 2;
-    let nodes = new Array();
-
-    while (lines[i] != "") {
-        let node_id, node_lable;
-        let index = 3;
-        while (lines[i].charAt(index) != " ")
-            index++;
-        node_id = lines[i].substr(3, index - 3);
-        index += 11;
-        node_lable = lines[i].substr(index, lines[i].length - index - 3);
-        nodes.push({
-            id: node_id,
-            label: node_lable
-        });
-        i++;
-    }
-
-
-    let edges = new Array();
-
-    for (let j = i + 1; j < lines.length - 3; j++) {
-        let source, target, edge_lable;
-        let index = 3;
-        while (String(lines[j]).charAt(index) != " ")
-            index++;
-        source = lines[j].substr(3, index - 3);
-        index += 4;
-        let last_index = index;
-        while (String(lines[j]).charAt(index) != " " && lines[j].charAt(index) != ";")
-            index++;
-        target = lines[j].substr(last_index, index - last_index);
-        let curEdge = {
-            label: " ",
-            source: source,
-            target: target,
-        };
-        if (String(lines[j]).charAt(index) === " ") { // if edge has no lable
-            index += 11;
-            edge_lable = lines[j].substr(index, lines[j].length - index - 3);
-            curEdge.label = edge_lable;
-        }
-        edges.push(curEdge);
-    }
-
-    graph.nodes = nodes;
-    graph.edges = edges;
-
-    return graph;
-
-}
-
 function createGraph(graph, direction, shape) {
 
     let g = new dagreD3.graphlib.Graph().setGraph({ rankdir: direction });
 
     // Automatically label each of the nodes
-    for (let i = 0; i < graph.nodes.length; i++)
-        g.setNode(graph.nodes[i].id, { label: graph.nodes[i].label, style: "fill: yellow", shape: shape });
+    for (let key in graph._nodes)
+        g.setNode(key, { label: graph._nodes[key].label, style: "fill:mediumSeaGreen", shape: shape });
 
     // Set up the edges
-    for (let i = 0; i < graph.edges.length; i++)
-        g.setEdge(graph.edges[i].source, graph.edges[i].target, { label: graph.edges[i].label, lineInterpolate: 'basis' });
-
+    for (let key in graph._edgeObjs)
+        g.setEdge(graph._edgeObjs[key].v, graph._edgeObjs[key].w, { label: graph._edgeLabels[key].label, lineInterpolate: 'basis' });
 
     // Set some general styles
     g.nodes().forEach(function (v) {
@@ -94,12 +29,10 @@ function createGraph(graph, direction, shape) {
 * @param  {String} shape    Shape of nodes. Can be "rect", "circle", "ellipse", or "diamond".
 *
 */
+const dot = require('graphlib-dot');
 
-module.exports.getGraph = (dotString, direction, shape) => {
-    graph = parseGraph(dotString);
-    return createGraph(graph, direction, shape);
+module.exports.getGraph = (graph_dot, direction, shape) => {
+     let graph = dot.read(graph_dot);
+     return createGraph(graph, direction, shape);
 }
-
-module.exports.getGraphObject = () => graph;
-
 
