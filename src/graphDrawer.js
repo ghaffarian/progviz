@@ -5,11 +5,12 @@ const graphStyleUpdater = require('./../src/graphStyleUpdater.js');
 const graphProperties = require('./../src/graphProperties.js');
 
 
-function drawGraph(g) {
-
+module.exports.drawGraph = (g) => {
+    
 
     let svg = d3.select("svg");
     let inner = svg.select("g");
+
 
     let w = 520, h = 600;
 
@@ -51,12 +52,13 @@ function drawGraph(g) {
 
     graphStyleUpdater.change_node_color_onHover(svg);
     zoom_by_scroll(svg, inner)
-    zoom_In_Out(w,h);
+    zoom_In_Out(w, h);
+
 
 
 }
 
-function zoom_by_scroll (svg, inner) { 
+function zoom_by_scroll(svg, inner) {
     let zoom = d3.behavior.zoom().on("zoom", function () {
         inner.attr("transform", "translate(" + d3.event.translate + ")" +
             "scale(" + d3.event.scale + ")");
@@ -64,9 +66,9 @@ function zoom_by_scroll (svg, inner) {
     svg.call(zoom);
 }
 
-function zoom_In_Out  (w, h) {
+function zoom_In_Out(w, h) {
 
-     var makePanZoomCTRL = function (width, height) {
+    var makePanZoomCTRL = function (width, height) {
         var control = {}
 
         var zoomMin = -10, // Levels of Zoom Out
@@ -109,7 +111,7 @@ function zoom_In_Out  (w, h) {
             var id = d3.select(this).attr("id");
             panZoom.zoom(id);
         });
- 
+
 
 
 }
@@ -119,13 +121,12 @@ module.exports.draw = (data) => {
     graph_dot = data;
     let g = graphCreator.getGraph(graph_dot, "TB", "ellipse");
     properties(g);
-    drawGraph(g);
-
+    this.drawGraph(g);
+    return g ; 
 }
 
 function properties(g) {
 
-    // console.log(graphProperties.getNumberOfNodes());
     document.getElementById('nodesProoerty').innerHTML = "Nodes: " + graphProperties.getNumberOfNodes(g);
     document.getElementById('edgesProperty').innerHTML = "Edges: " + graphProperties.getNumberOfEdges(g);
     document.getElementById('nameProperty').innerHTML = "Name: " + graphProperties.getName(g);
