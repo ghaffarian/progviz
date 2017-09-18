@@ -22,7 +22,7 @@ module.exports.search = (g, query) => {
 
 
     for (let i=0 ; i<result.length; i++) {
-        g._nodes[result[i].id].style =  "fill : " + "yellow";
+        g._nodes[result[i].id].style =  "fill : " + "red";
     }
     return g;
 
