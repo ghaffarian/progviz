@@ -5,6 +5,7 @@ const d3 = require('d3');
 const graphDrawer = require(__dirname + '/src/graphDrawer.js');
 
 
+let g;
 function open_file() {
     document.getElementById('openFile').addEventListener("click", function () {
 
@@ -24,11 +25,29 @@ function open_file() {
                     return
                 }
                 // handle the file content
-                graphDrawer.draw(data);
+                g = graphDrawer.draw(data);
             })
         }
 
 
     }, false);
 
+}
+
+const fuseSearch = require(__dirname + '/src/fuseSearch.js');
+
+function submit_query() {
+
+    document.getElementById('search').addEventListener("click", function () {
+
+        for (let key in g._nodes) {
+            g._nodes[key].style = "fill : " + "mediumSeaGreen";
+        }
+
+        
+        let updated_g = fuseSearch.search(g, document.getElementById("inputForm").value);
+        graphDrawer.drawGraph(updated_g);
+
+
+    }, false);
 }
