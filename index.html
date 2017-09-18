@@ -20,7 +20,7 @@
       <link rel="stylesheet" href="./style/material-icon.css">
 
       <button href="" class="w3-bar-item w3-button" id="openFile"><i class="material-icons w3-xxlarge" >create_new_folder</i></button>
-      <button href="" class="w3-bar-item w3-button" id="search"><i class="material-icons w3-xxlarge">search</i></button>
+      <!-- <button href="" class="w3-bar-item w3-button" id="search"><i class="material-icons w3-xxlarge">search</i></button> -->
       <button href="" class="w3-bar-item w3-button" id="capture"><i class="material-icons w3-xxlarge">camera</i></button>
       <button href="" class="w3-bar-item w3-button" id="zoomIn"><i class="material-icons w3-xxlarge">zoom_in</i></button>
       <button href="" class="w3-bar-item w3-button" id="zoomOut"><i class="material-icons w3-xxlarge">zoom_out</i></button>
@@ -48,6 +48,17 @@
           <li id="nodesProoerty">Nodes</li>
           <li id="edgesProperty">Edges</li>
         </ul>
+      </div>
+      <div class="w3-container">
+        <form class="w3-container">
+          <input id="inputForm" class="w3-input w3-border w3-grey" type="text" placeholder="search">
+        </form>
+      </div>
+      <div class="w3-container w3-center">
+        <button id="search" class="w3-btn w3-blue-grey">search</button>
+        <script>
+          submit_query();
+        </script>
       </div>
     </div>
 
