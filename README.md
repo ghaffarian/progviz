@@ -23,8 +23,13 @@ In folder:node_modules/dagre-d3/lib:
 In all of these below files change `d3 = require("./d3");` to `d3 = require("d3");`
 
 create-edge-labels.js
+
 create-edge-paths.js
+
 create-nodes.js
+
 position-clusters.js
+
 position-edge-labels.js
+
 position-nodes.js
