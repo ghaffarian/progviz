@@ -1,0 +1,113 @@
+*{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid green; */
+    border: none ;
+    color: #fff;
+    transition: all .25s ease-out;
+    
+}
+body{
+    overflow: hidden;
+}
+body>div{
+    float: left;
+}
+.ctrl-btn{
+    display: block ;
+    width: 10px;
+    height: 10px;
+    background-color: transparent ;
+}
+
+.controls{
+    height: 100%;
+    width: 1px;
+    background-color: rgb(65, 0, 51);
+    float: left;
+    box-shadow: 0 0 10px 0 black;
+}
+
+.ctrl-btn:hover{
+    background-color: rgb(26, 0, 20);
+}
+
+/*********   search ***********/
+#searchBox{
+    width: 350px;
+    height: 100%;
+    margin-left: -350px;
+    background-color: rgb(65, 0, 51);
+    float: left;
+}
+#searchBox>form{
+    margin-top: 50px;
+    margin-right: 35px;
+    float: right;
+}
+#inputForm{
+    color: #000;
+    float: left;
+    display: block;
+    width: 200px;
+    height: 35px;
+    padding: 5px;
+}
+#reset{
+    float: left;    
+    display: block;
+    width: 35px;
+    height: 35px;
+    font-size: 30px;
+    line-height: 35px;
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.664);
+
+}
+.close{
+    float: right;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    background-color: transparent;
+    font-size: 40px;
+
+}
+#search{
+    float: right;
+    padding: 5px;
+    height: 35px;
+    line-height: 27px;
+    background-color: rgb(28, 0, 29);
+    font-size: 20px;
+    margin-top: 20px;
+    margin-right: 35px;
+}
+/*******************      info      ***********************/
+#info{
+    width: 250px;
+    height: 100%;
+    background-color: rgb(65, 0, 51);
+    float: right;
+    box-shadow: 0 0 10px 0 black;
+    position: absolute;
+    right: 0;
+    z-index: 85894;
+    
+
+}
+#info ul{
+    display: block;
+    margin-top: 50px;
+}
+#info li{
+    display: block;
+    margin-left: 50px;
+}
+/******************      graph      **************/
+#svgGraph{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(37, 37, 37);
+}
