@@ -7,7 +7,7 @@ const graphDrawer = require(__dirname + '/src/graphDrawer.js');
 
 let g;
 function open_file() {
-    document.getElementById('openFile').addEventListener("click", function () {
+    document.getElementById('openfile').addEventListener("click", function () {
 
         dialog.showOpenDialog(function (fileNames) {
             // fileNames is an array that contains all the selected

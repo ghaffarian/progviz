@@ -85,10 +85,10 @@ function zoom_In_Out(w, h) {
         };
 
         control.zoom = function (btnID) {
-            if (btnID === "zoomIn") {
+            if (btnID === "zoomin") {
                 if (zoomCur >= zoomMax) return;
                 zoomCur++;
-            } else if (btnID === "zoomOut") {
+            } else if (btnID === "zoomout") {
                 if (zoomCur <= zoomMin) return;
                 zoomCur--;
             }
@@ -105,7 +105,7 @@ function zoom_In_Out(w, h) {
     //***********************************************************
     // SET BUTTON EVENT LISTENERS
     //***********************************************************
-    d3.selectAll("#zoomIn, #zoomOut")
+    d3.selectAll("#zoomin, #zoomout")
         .on("click", function () {
             d3.event.preventDefault();
             var id = d3.select(this).attr("id");
