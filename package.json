@@ -1,31 +1,25 @@
 {
   "name": "progviz",
   "version": "1.0.0",
-  "description": "AST, CFG, PDG graph visualization",
+  "description": "A Desktop Graph Visualization for Graphical Program Representations",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron ."
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ghaffarian/progviz.git"
+    "url": "git+https://github.com/AliNazariii/ProGViz.git"
   },
-  "keywords": [
-    "AST",
-    "CFG",
-    "PDG"
-  ],
-  "author": "@ghaffarian @aliizadi @ehsansouri23 @abedinevis",
-  "license": "Apache License",
+  "author": "ali nazari",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ghaffarian/progviz/issues"
+    "url": "https://github.com/AliNazariii/ProGViz/issues"
   },
-  "homepage": "https://github.com/ghaffarian/progviz#readme",
+  "homepage": "https://github.com/AliNazariii/ProGViz#readme",
+  "devDependencies": {
+    "electron": "^2.0.8"
+  },
   "dependencies": {
-    "dagre-d3": "^0.4.17",
-    "electron": "^1.7.5",
-    "fuse.js": "^3.1.0",
-    "graphlib-dot": "^0.6.2"
+    "electron-store": "^2.0.0"
   }
 }

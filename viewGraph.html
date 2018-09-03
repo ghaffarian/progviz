@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>View Graphs</title>
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/png" href="assets/image/icon.png"/>
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <link rel="stylesheet" href="assets/css/w3.css">
+        <link rel="stylesheet" href="assets/css/mine.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    </head>
+    <body class="w3-light-gray w3-mobile fontWeb" id="bodyID">
+
+        <!-- Graph section -->
+        <div id="graphSection">
+            <!-- <img src="assets/image/stewart-aboutme.jpg" class="w3-image w3-card w3-mobile"> -->
+        </div>
+        
+        <!-- Right SideBar -->
+        <div>
+            <div class="w3-display-right w3-center w3-card w3-animate-right w3-sidebar w3-bar-block w3-small w3-blue" id="myInfoBar" style="width: 0;transition: 0.3s;">
+                <br><div class="w3-container w3-margin-top w3-xlarge">
+                    <p id="graphInfoLabel" style="text-align: left"><b>Graph info</b></p>
+                </div>
+
+                <div class="w3-container w3-large w3-margin">
+                    <p id="GraphNameLabel" style="text-align: left">Name:</p>
+                    <p id="nodeNameLabel" style="text-align: left">Nodes:</p>
+                    <p id="edgeNameLabel" style="text-align: left">Edges:</p>
+                </div>
+
+                <a href="#" onclick="closeInfoBar()" class="w3-container w3-display-topleft w3-xlarge w3-hover-blue w3-text-white w3-margin-top" id="closeRightSideBar">
+                    <i class="fas fa-times"></i>
+                </a>
+
+            </div>
+
+            <i class="fas fa-info w3-display-topright w3-margin w3-left w3-xlarge w3-text-blue w3-hover-text-white w3-button w3-hover-blue" onclick="openInfoBar()" id="rightSideBarIcon"></i>
+        </div>
+
+        <!-- Left SideBar -->
+        <div>
+            <div class="w3-display-left w3-sidebar w3-bar-block w3-small w3-center w3-card w3-animate-left" id="mySidebar" style="width: 7em; transition: 0.3s; overflow-x: hidden;">
+                <label for="fileChooser" class="w3-bar-item w3-button w3-margin-top w3-padding-large w3-hover-blue w3-hover-text-white w3-text-blue" id="browse">
+                    <i class="fas fa-file-import w3-xlarge"></i>
+                    <input type="file" name="datafile" id="fileChooser" style="position:absolute; overflow:hidden; clip:rect(0,0,0,0)">
+                </label>
+                <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-blue w3-hover-text-white w3-text-blue" id="shot">
+                    <i class="fas fa-camera w3-xlarge"></i>     
+                </a>
+                <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-blue w3-hover-text-white w3-text-blue" id="zoomIn">
+                    <i class="fas fa-search-plus w3-xlarge"></i>
+                </a>
+                <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-blue w3-hover-text-white w3-text-blue" id="zoomOut">                            
+                    <i class="fas fa-search-minus w3-xlarge"></i>
+                </a>
+                <div>
+                    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-blue w3-hover-text-white w3-text-blue" onclick="openSetting()" id="setting">
+                        <i class="fas fa-cog w3-xlarge"></i>
+                    </a>
+                </div>
+                <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-blue w3-hover-text-white w3-text-blue" id="search">
+                    <i class="fas fa-search w3-xlarge"></i>
+                </a>
+                <a href="index.html" class="w3-bar-item w3-button w3-padding-large w3-hover-blue w3-hover-text-white w3-text-blue" id="home">
+                    <i class="fas fa-home w3-xlarge"></i>
+                </a>
+                <a href="#" onclick="closeSideBar()" class="w3-display-bottomleft w3-bar-item w3-button w3-padding-large w3-hover-blue w3-hover-text-white w3-text-blue" id="closeLeftSideBar">
+                    <i class="fas fa-times"></i>                        
+                </a>
+            </div>
+
+            <!-- Setting Modal -->
+            <div id="settingModal" class="w3-modal w3-center" style="transition: 0.3s; padding-top:0.2em">
+                <div class="w3-modal-content w3-animate-top w3-card-4" id="settingContent">
+                    <header class="w3-blue" id="settingHeader"> 
+                        <p class="w3-xxlarge w3-padding-large" id="settingHeaderLabel">Setting</p>
+                    </header>
+                    <div class="w3-container">
+                        <div class="w3-container w3-light-gray w3-margin" id="themeBoolean">
+                            <p class="w3-large" id="themeLabel">Theme:</p>
+                            <div class="w3-bar w3-margin">
+                                <button class="w3-bar-item w3-button w3-blue w3-hover-blue w3-medium" id="lightTheme" onclick="lightTheme()">Light</button>
+                                <button class="w3-bar-item w3-button w3-hover-blue w3-medium" id="darkTheme" onclick="darkTheme()">Dark</button>
+                            </div>
+                        </div>
+                        <div class="w3-container w3-light-gray w3-margin">
+                            <p class="w3-large" id="languageLabel">Language:</p>
+                            <div class="w3-bar w3-margin">
+                                <button class="w3-bar-item w3-button w3-blue w3-hover-blue w3-medium" id="englishLanguage" onclick="english()">English</button>
+                                <button class="w3-bar-item w3-button w3-hover-blue w3-medium" id="persianLanguage" onclick="persian()">Persian</button>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="w3-blue w3-row" id="settingFooter">
+                        <div class="w3-col w3-blue w3-center"><a href="#" class="w3-button w3-hover-light-gray w3-hover-text-blue w3-medium" id="settingConfirmButton" style="width:100%" onclick="closeSetting()">Done!</a></div>
+                    </footer>
+                </div>
+            </div>
+            
+            <i class="fas fa-align-justify w3-display-topleft w3-right w3-margin w3-button w3-xxlarge w3-text-blue w3-hover-blue w3-hover-text-white" onclick="openSideBar()" id="leftSideBarIcon"></i>
+        </div>
+        
+        
+        
+
+        <script src="assets/js/mine.js"></script>
+        <script src="assets/js/w3.js"></script>
+
+    </body>
+</html>

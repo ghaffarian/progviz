@@ -1,69 +1,71 @@
+<!DOCTYPE html>
 <html>
+	<head>
+		<title>Program Graph Visualization</title>
+		<meta charset="UTF-8">
+		<link rel="icon" type="image/png" href="assets/image/icon.png"/>
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+		<link rel="stylesheet" href="assets/css/w3.css">
+		<link rel="stylesheet" href="assets/css/mine.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    </head>
+	<body class="w3-mobile fontWeb">
+		<div style="z-index: -1;">
+			<article>
 
-<head>
-  <meta charset="utf-8">
-  <title>ProgVIZ</title>
-  <link rel="stylesheet" href="./style/material-icon.css">
-  <link rel="stylesheet" href="./style/styles.css">
-  <script src="./style/scripts.js"></script>
-  <link rel="stylesheet" type="text/css" href="./style/graph.css">
-  <link href="./style/tipsy.css" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="./style/w3.css">
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
-  <script type="text/javascript" src="./style/jquery.tipsy.js"></script>
-  <script type="text/javascript" src="./src/Ui/buttons.js"></script>
-  <style type="text/css" media="screen"></style>
-</head>
+				<!-- <svg version="1.1" xmlns="http://www.w3.org/2000/svg" style="display:block; width:40em; height:25em; margin:0em auto"> -->
+				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" style="display:block; position:fixed; top:0; left:0; height:100%; width:100%">
+					<radialGradient id="background-gradient"></radialGradient>
 
-<body onload="init()">
+					<!-- <rect width="1" height="1" fill="url(#background-gradient)"/> -->
+					<rect width="1" height="1" fill="white"/>
+					
+					<g stroke-width="0.00125"></g>
+				</svg>
 
-  <div class="controls" id="controls">
+				<div style="display: none;">
+					<form action="#" method="get">
+						<table style="display:table; margin-left:auto; margin-right:auto" class="noborder">
+							<tbody>
+								<tr>
+									<td><label for="number-nodes">Number of nodes:</label></td>
+									<td><input type="number" step="1" min="1" max="300" value="25" id="number-nodes" style="width:5em"/></td>
+								</tr>
+								<tr>
+									<td><label for="extra-edges">Extra edges:</label></td>
+									<td><input type="number" step="any" min="0" max="1000" value="20" id="extra-edges" style="width:5em"/>%</td>
+								</tr>
+								<tr>
+									<td><label for="network-style">Network style:</label></td>
+									<td>
+										<select id="network-style">
+											<option value="0.0">Mesh</option>
+											<option value="0.5" selected="selected">Balanced</option>
+											<option value="1.0">Hub-and-spoke</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td><label for="drift-speed">Drift speed:</label></td>
+									<td><input type="number" step="any" min="0" max="100" value="50" id="drift-speed" style="width:5em"/></td>
+								</tr>
+								<tr>
+									<td><label for="repulsion-force">Repulsion force:</label></td>
+									<td><input type="number" step="any" min="0" max="100" value="100" id="repulsion-force" style="width:5em"/></td>
+								</tr>
+							</tbody>
+						</table>
+					</form>
+					<script type="application/javascript" src="assets/js/animated-floating-graph-nodes.js"></script>	
+				</div>
+			</article>
+		</div>
 
-    <button id="openfile" class="ctrl-btn material-icons">create_new_folder</button>
-    <button id="capture" class="ctrl-btn material-icons">camera</button>
-    <button id="zoomin" class="ctrl-btn material-icons">zoom_in</button>
-    <button id="zoomout" class="ctrl-btn material-icons">zoom_out</button>
-    <button id="searchkey" onclick="closeSearch()" class="ctrl-btn material-icons">search</button>
-    <button id="settings" class="ctrl-btn material-icons">settings</button>
-    <script>
-      open_file();
-    </script>
-    <div id="searchBox">
-      <button class="close" id="sclose" onclick="closeSearch()">&times;</button>
-      <form>
-        <input id="inputForm" type="text" placeholder="Search">
-        <input id="reset" type="reset" value="&times;">
-      </form>
-      <button id="search">search</button>
-      <script>
-        submit_query();
-      </script>
-
-    </div>
-  </div>
-
-
-  <div id="svgGraph" style="width:90%;">
-    <svg width="100%" height="100%">
-      <g/>
-    </svg>
-  </div>
-
-
-  <div id="info">
-    <button class="close" onclick="closeInfo()" style="float: left;">&times;</button>
-
-    <ul id="propertiesList">
-      <li id="nameProperty">
-        <h5>Graph info</h5>
-      </li>
-      <li id="nameProperty">Name</li>
-      <li id="nodesProoerty">Nodes</li>
-      <li id="edgesProperty">Edges</li>
-    </ul>
-  </div>
-
-</body>
-
+		<div>
+			<a href="viewGraph.html" class="w3-card w3-button w3-round-xlarge w3-blue w3-hover-text-blue" style="width: 15em; position: fixed; top: 70%; left: 10%;">
+				<p style="font-size: 2em">View Graph</p>
+			</a>
+		</div>
+		
+	</body>
 </html>
