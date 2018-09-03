@@ -1,4 +1,13 @@
 var themeBoolean = true; //true for light
+var languageBoolean = true; //true for english
+
+fs = require('fs');
+var setting = JSON.parse(fs.readFileSync(__dirname + '/setting.json'));
+setting.language = "hey";
+console.log(JSON.stringify(setting));
+// fs.writeFile(__dirname + '/setting.json', JSON.stringify(setting));
+
+
 
 function openSideBar() {
     document.getElementById("mySidebar").style.width = "7em";
