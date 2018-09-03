@@ -3,11 +3,30 @@ var languageBoolean = true; //true for english
 
 fs = require('fs');
 var setting = JSON.parse(fs.readFileSync(__dirname + '/setting.json'));
-setting.language = "hey";
-console.log(JSON.stringify(setting));
-// fs.writeFile(__dirname + '/setting.json', JSON.stringify(setting));
 
+function loadSetting() {
+    if (setting.language == true) {
+        languageBoolean = true;
+        english();
+    } else {
+        languageBoolean = false;
+        persian();
+    }
 
+    if (setting.theme == true) {
+        themeBoolean = true;
+        lightTheme();
+    } else {
+        themeBoolean = false;
+        darkTheme();
+    }
+    console.log(JSON.stringify(setting));
+}
+function saveSetting() {
+    fs.writeFile(__dirname + '/setting.json', JSON.stringify(setting));
+}
+
+loadSetting();
 
 function openSideBar() {
     document.getElementById("mySidebar").style.width = "7em";
@@ -31,6 +50,8 @@ function openSetting() {
 }
 
 function lightTheme() {
+    themeBoolean = true;
+    setting.theme = true;
     w3.addClass('#bodyID','w3-light-gray');
 
     //left sideBar icon change theme
@@ -176,6 +197,9 @@ function lightTheme() {
     w3.addClass('#closeRightSideBar', 'w3-hover-text-white');
 }
 function darkTheme() {
+    themeBoolean = false;
+    setting.theme = false;
+
     w3.removeClass('#bodyID','w3-light-gray');
     document.getElementById('bodyID').style.backgroundColor= "#252526";
 
@@ -323,6 +347,9 @@ function darkTheme() {
 }
 
 function persian() {
+    languageBoolean = false;
+    setting.language = false;
+
     document.getElementById('themeLabel').innerText= ":تم برنامه";
     document.getElementById('lightTheme').innerText= "روشن";    
     document.getElementById('darkTheme').innerText= "تیره";
@@ -369,6 +396,9 @@ function persian() {
     }
 }
 function english() {
+    languageBoolean = true;
+    setting.language = true;
+
     document.getElementById('themeLabel').innerText= "Theme:";
     document.getElementById('lightTheme').innerText= "Light";    
     document.getElementById('darkTheme').innerText= "Dark";
