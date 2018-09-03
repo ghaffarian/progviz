@@ -134,7 +134,7 @@ function lightTheme() {
     themeBoolean = true;
 
     //language setting section change theme
-    if(document.getElementById('persianLanguage').classList.contains("w3-teal")) {
+    if(!languageBoolean) { //this is for persian language
         w3.removeClass('#persianLanguage','w3-teal');
         w3.addClass('#persianLanguage','w3-blue');
 
@@ -283,7 +283,7 @@ function darkTheme() {
     themeBoolean = false;
 
     //language setting section change theme
-    if(document.getElementById('persianLanguage').classList.contains("w3-blue")) {
+    if(!languageBoolean) { //this is for persian language
         w3.removeClass('#persianLanguage','w3-blue');
         w3.addClass('#persianLanguage','w3-teal');
 
