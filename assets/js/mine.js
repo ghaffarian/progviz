@@ -162,14 +162,6 @@ function lightTheme() {
     w3.removeClass('#search','w3-hover-text-dark-gray');
     w3.addClass('#search', 'w3-hover-text-white');
 
-    //home button change theme
-    w3.removeClass('#home', 'w3-text-white');
-    w3.addClass('#home','w3-text-blue');
-    w3.removeClass('#home','w3-hover-teal');
-    w3.addClass('#home', 'w3-hover-blue');
-    w3.removeClass('#home','w3-hover-text-dark-gray');
-    w3.addClass('#home', 'w3-hover-text-white');
-
     //closeLeftSideBar button change theme
     w3.removeClass('#closeLeftSideBar', 'w3-text-white');
     w3.addClass('#closeLeftSideBar','w3-text-blue');
@@ -310,14 +302,6 @@ function darkTheme() {
     w3.addClass('#search', 'w3-hover-teal');
     w3.removeClass('#search','w3-hover-text-white');
     w3.addClass('#search', 'w3-hover-text-dark-gray');
-
-    //home button change theme
-    w3.removeClass('#home', 'w3-text-blue');
-    w3.addClass('#home','w3-text-white');
-    w3.removeClass('#home','w3-hover-blue');
-    w3.addClass('#home', 'w3-hover-teal');
-    w3.removeClass('#home','w3-hover-text-white');
-    w3.addClass('#home', 'w3-hover-text-dark-gray');
 
     //closeLeftSideBar button change theme
     w3.removeClass('#closeLeftSideBar','w3-text-blue');
