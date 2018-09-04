@@ -28,6 +28,12 @@ function saveSetting() {
 
 loadSetting();
 
+function zoomIn() {
+    var component = document.getElementById('graphSection').style;
+    component.scale *= 1.2;
+    component.scale *= 1.2;
+}
+
 function openSideBar() {
     document.getElementById("mySidebar").style.width = "7em";
 }
