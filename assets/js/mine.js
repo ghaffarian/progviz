@@ -28,10 +28,12 @@ function saveSetting() {
 
 loadSetting();
 
+var scaleCount = 1;
 function zoomIn() {
     var component = document.getElementById('graphSection').style;
-    component.scale *= 1.2;
-    component.scale *= 1.2;
+    scaleCount += 0.2;
+    component.transform = 'scale(' + scaleCount + ')';
+    console.log(scaleCount);
 }
 
 function openSideBar() {
