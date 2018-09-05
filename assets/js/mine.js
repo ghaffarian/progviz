@@ -63,6 +63,10 @@ function openSetting() {
     document.getElementById('settingModal').style.display="block";
 }
 
+function openGraph(input) {
+    document.getElementById('graphPic').src = input.files[0].path;
+}
+
 function lightTheme() {
     themeBoolean = true;
     setting.theme = true;
