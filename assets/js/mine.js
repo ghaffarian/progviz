@@ -35,6 +35,12 @@ function zoomIn() {
     component.transform = 'scale(' + scaleCount + ')';
     console.log(scaleCount);
 }
+function zoomOut() {
+    var component = document.getElementById('graphSection').style;
+    scaleCount -= 0.2;
+    component.transform = 'scale(' + scaleCount + ')';
+    console.log(scaleCount);
+}
 
 function openSideBar() {
     document.getElementById("mySidebar").style.width = "7em";
