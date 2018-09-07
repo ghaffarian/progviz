@@ -29,24 +29,6 @@ cd progviz/
 npm install
 ```
 
-After npm does its job, we need to do some corrections to properly run the project.
-
-Due to a problem in [`dagre-d3`](https://github.com/cpettitt/dagre-d3) 
-we need to edit some files after installing it:
-
- 1. Change directory to `node_modules/dagre-d3/lib`.
-
- 2. In all the files listed below, change `d3 = require("./d3");` to **`d3 = require("d3");`**
-
-    * create-edge-labels.js
-    * create-edge-paths.js
-    * create-nodes.js
-    * position-clusters.js
-    * position-edge-labels.js
-    * position-nodes.js
-
-These modifications only need to be done once.
-
 Now you can run the application using:
 
 ```
