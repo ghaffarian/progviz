@@ -12,7 +12,7 @@ This is an internal project by a group of students of [Amirkabir University of T
 To get started with development on Ubuntu, first install required packages:
 
 ```
-sudo apt install git npm nodejs-legacy
+ sudo apt-get install nodejs npm
 ```
 
 Clone the repository:
