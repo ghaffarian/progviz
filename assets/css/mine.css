@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
     font-family: Vazir;
     src: url('../font/Vazir.eot');
     src: url('../font/Vazir.eot?#iefix') format('embedded-opentype'),
@@ -7,7 +7,7 @@
          url('../font/Vazir.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-}
+} */
 @font-face {
     font-family: Vazir;
     src: url('../font/Vazir-Bold.eot');
@@ -18,7 +18,7 @@
     font-weight: bold;
     font-style: normal;
 }
-@font-face {
+/* @font-face {
     font-family: Vazir;
     src: url('../font/Vazir-Black.eot');
     src: url('../font/Vazir-Black.eot?#iefix') format('embedded-opentype'),
@@ -27,8 +27,8 @@
          url('../font/Vazir-Black.ttf') format('truetype');
     font-weight: 900;
     font-style: normal;
-}
-@font-face {
+} */
+/* @font-face {
     font-family: Vazir;
     src: url('../font/Vazir-Medium.eot');
     src: url('../font/Vazir-Medium.eot?#iefix') format('embedded-opentype'),
@@ -37,8 +37,8 @@
          url('../font/Vazir-Medium.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
-}
-@font-face {
+} */
+/* @font-face {
     font-family: Vazir;
     src: url('../font/Vazir-Light.eot');
     src: url('../font/Vazir-Light.eot?#iefix') format('embedded-opentype'),
@@ -47,8 +47,8 @@
          url('../font/Vazir-Light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
-}
-@font-face {
+} */
+/* @font-face {
     font-family: Vazir;
     src: url('../font/Vazir-Thin.eot');
     src: url('../font/Vazir-Thin.eot?#iefix') format('embedded-opentype'),
@@ -57,8 +57,8 @@
          url('../font/Vazir-Thin.ttf') format('truetype');
     font-weight: 100;
     font-style: normal;
-}
+} */
 
 .Vazir {
-	font-family: Vazir, tahoma, sans-serif;
+	font-family: Vazir, sans-serif, tahoma;
 }

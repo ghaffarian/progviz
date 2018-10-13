@@ -9,60 +9,135 @@
         <link rel="stylesheet" href="assets/css/mine.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     </head>
-    <body class="w3-light-gray w3-mobile Vazir" id="bodyID">
+    <body class="   w3-light-gray
+                    w3-mobile Vazir
+                    " id="bodyID">
 
         <!-- Graph section -->
         <div id="graphSection">
-            <img src="#" class="w3-image w3-card w3-mobile" id="graphPic">
+            
+            <!-- <img src="assets/image/stewartq-aboutme.jpg" class="w3-image w3-card w3-mobile" id="graphPic"> -->
         </div>
         
         <!-- Right SideBar -->
         <div>
-            <div class="w3-display-right w3-center w3-card w3-animate-right w3-sidebar w3-bar-block w3-small w3-blue" id="myInfoBar" style="width: 0;transition: 0.3s;">
-                <br><div class="w3-container w3-margin-top w3-xlarge">
-                    <p id="graphInfoLabel" style="text-align: left"><b>Graph info</b></p>
+            <div id="myInfoBar"
+                class=" w3-display-right
+                        w3-center
+                        w3-card
+                        w3-animate-right
+                        w3-sidebar
+                        w3-bar-block
+                        w3-small
+                        w3-blue"
+                style="transition: 0.3s;">
+                <br>
+                <div class=" w3-container
+                             w3-margin-top
+                             w3-xlarge">
+                    <p id="graphInfoLabel"
+                    style="text-align: left">
+                        <b>Graph info</b>
+                    </p>
                 </div>
 
+            <!-- graph info -->
                 <div class="w3-container w3-large w3-margin">
                     <p id="GraphNameLabel" style="text-align: left">Name:</p>
                     <p id="nodeNameLabel" style="text-align: left">Nodes:</p>
                     <p id="edgeNameLabel" style="text-align: left">Edges:</p>
                 </div>
 
-                <a href="#" onclick="closeInfoBar()" class="w3-container w3-display-topleft w3-xlarge w3-hover-blue w3-text-white w3-margin-top" id="closeRightSideBar">
-                    <i class="fas fa-times"></i>
-                </a>
 
             </div>
 
-            <i class="fas fa-info w3-display-topright w3-margin w3-left w3-xlarge w3-text-blue w3-hover-text-white w3-button w3-hover-blue" onclick="openInfoBar()" id="rightSideBarIcon"></i>
         </div>
 
         <!-- Left SideBar -->
         <div>
-            <div class="w3-display-left w3-sidebar w3-bar-block w3-small w3-center w3-card w3-animate-left" id="mySidebar" style="width: 7em; transition: 0.3s; overflow-x: hidden;">
-                <label for="fileChooser" class="w3-bar-item w3-button w3-margin-top w3-padding-large w3-hover-blue w3-hover-text-white w3-text-blue" id="browse">
-                    <i class="fas fa-file-import w3-xlarge"></i>
-                    <input type="file" name="datafile" id="fileChooser" onchange="openGraph(this);" style="position:absolute; overflow:hidden; clip:rect(0,0,0,0)">
-                </label>
-                <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-blue w3-hover-text-white w3-text-blue" id="shot">
+            <div class="w3-display-left
+                        w3-sidebar
+                        w3-bar-block
+                        w3-small
+                        w3-center
+                        w3-card w3-animate-left" id="mySidebar"
+            style="width: 7em; transition: 0.3s; overflow-x: hidden;">
+                    
+                <!-- BROWSE  -->
+                <a
+                href="#"
+                class=" w3-bar-item
+                        w3-button
+                        w3-padding-large
+                        w3-hover-blue
+                        w3-hover-text-white
+                        w3-text-blue"
+                id="browse">
+                    <i class="fas fa-folder-open w3-xlarge"></i>     
+                </a>
+
+                <!-- SHOT -->
+                <a
+                href="#"
+                class=" w3-bar-item
+                        w3-button
+                        w3-padding-large
+                        w3-hover-blue
+                        w3-hover-text-white
+                        w3-text-blue"
+                id="shot">
                     <i class="fas fa-camera w3-xlarge"></i>     
                 </a>
-                <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-blue w3-hover-text-white w3-text-blue" id="zoomIn" onclick="zoomIn()">
+
+                <!-- ZOOM IN -->
+                <a href="#"
+                   class="  w3-bar-item
+                            w3-button
+                            w3-padding-large
+                            w3-hover-blue
+                            w3-hover-text-white
+                            w3-text-blue"
+                            id="zoomIn">
                     <i class="fas fa-search-plus w3-xlarge"></i>
                 </a>
-                <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-blue w3-hover-text-white w3-text-blue" id="zoomOut" onclick="zoomOut()">                            
+                
+                <!-- ZOOM OUT -->
+                <a href="#"
+                    class=" w3-bar-item
+                            w3-button
+                            w3-padding-large
+                            w3-hover-blue
+                            w3-hover-text-white
+                            w3-text-blue"
+                    id="zoomOut">                            
                     <i class="fas fa-search-minus w3-xlarge"></i>
                 </a>
-                <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-blue w3-hover-text-white w3-text-blue" onclick="openSetting()" id="setting">
+
+                <!-- SETTINGS -->
+                <a href="#"
+                    class=" w3-bar-item
+                            w3-button
+                            w3-padding-large
+                            w3-hover-blue
+                            w3-hover-text-white
+                            w3-text-blue"
+                    onclick="openSetting()"
+                    id="setting">
                     <i class="fas fa-cog w3-xlarge"></i>
                 </a>
-                <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-blue w3-hover-text-white w3-text-blue" id="search">
+
+                <!-- SEARCH -->
+                <a href="#"
+                   class="  w3-bar-item
+                            w3-button
+                            w3-padding-large
+                            w3-hover-blue
+                            w3-hover-text-white
+                            w3-text-blue"
+                    id="search">
                     <i class="fas fa-search w3-xlarge"></i>
                 </a>
-                <a href="#" onclick="closeSideBar()" class="w3-display-bottomleft w3-bar-item w3-button w3-padding-large w3-hover-blue w3-hover-text-white w3-text-blue" id="closeLeftSideBar">
-                    <i class="fas fa-times"></i>                        
-                </a>
+
             </div>
 
             <!-- Setting Modal -->
@@ -92,11 +167,14 @@
                     </footer>
                 </div>
             </div>
-            
-            <i class="fas fa-align-justify w3-display-topleft w3-right w3-margin w3-button w3-xxlarge w3-text-blue w3-hover-blue w3-hover-text-white" onclick="openSideBar()" id="leftSideBarIcon"></i>
-        </div>
+
+        <!-- END LEFT BAR -->
+        </div> 
         
         <script src="assets/js/w3.js"></script>
+        <script src="assets/js/settings.js"></script>
+        <script src="assets/js/open_apply.js"></script>
+        <script src="assets/js/graph_open.js"></script>
         <script src="assets/js/mine.js"></script>
     
     </body>
